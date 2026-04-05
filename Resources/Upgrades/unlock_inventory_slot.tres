@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bwexl6mv4q0d8"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_121rq"]
+
+[resource]
+script = ExtResource("1_121rq")
+upgrade_name = "Increase Inventory Space"
+upgrade_description = "+1 Inventory Slot"
+cost = {
+"bronze": 100,
+"gold": 0,
+"silver": 0
+}
+cost_progression = Array[Dictionary]([{
+"bronze": 100,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 200,
+"gold": 0,
+"silver": 10
+}, {
+"bronze": 500,
+"gold": 0,
+"silver": 50
+}, {
+"bronze": 1000,
+"gold": 0,
+"silver": 250
+}, {
+"bronze": 0,
+"gold": 50,
+"silver": 500
+}, {
+"bronze": 0,
+"gold": 200,
+"silver": 1500
+}, {
+"bronze": 0,
+"gold": 1000,
+"silver": 0
+}, {
+"bronze": 0,
+"gold": 2500,
+"silver": 0
+}])
+uses = 8
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

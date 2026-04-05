@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://n6h6qvm5x1id"]
+
+[ext_resource type="Script" uid="uid://dh1reapq1o7ln" path="res://Scripts/item_data.gd" id="1_1m0v4"]
+[ext_resource type="Texture2D" uid="uid://8ccmhc4soh8k" path="res://Assets/coin_art/coin_16_sprite.png" id="1_lqipy"]
+[ext_resource type="Resource" uid="uid://dd2h73ya1brr2" path="res://Resources/Coins/coin_32.tres" id="2_hf4qb"]
+
+[resource]
+script = ExtResource("1_1m0v4")
+icon = ExtResource("1_lqipy")
+coin_value = 16
+next_item = ExtResource("2_hf4qb")
+metadata/_custom_type_script = "uid://dh1reapq1o7ln"

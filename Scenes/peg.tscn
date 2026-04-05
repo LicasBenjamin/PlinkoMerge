@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b5ofivp8rmasc"]
+
+[ext_resource type="Texture2D" uid="uid://dam880sm0jufk" path="res://Assets/circle.png" id="1_e5a35"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e5a35"]
+friction = 0.0
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4b2k"]
+
+[node name="Peg" type="StaticBody2D" unique_id=998411591]
+physics_material_override = SubResource("PhysicsMaterial_e5a35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1093304522]
+shape = SubResource("CircleShape2D_p4b2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352908747]
+scale = Vector2(0.1193568, 0.1193568)
+texture = ExtResource("1_e5a35")

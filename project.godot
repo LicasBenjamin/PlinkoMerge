@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Jame-Gam-57-1"
+run/main_scene="uid://buvtjw0u4nwyt"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://Assets/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://1hc0atggf0tj"
+
+[autoload]
+
+Currency="*uid://cfpige7dd7r1d"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[input]
+
+interact={
+"deadzone": 0.2,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_1="Stage"
+2d_physics/layer_2="Coin"
+2d_physics/layer_3="Award"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

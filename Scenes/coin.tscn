@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bj8ofle1ijvu6"]
+
+[ext_resource type="Script" uid="uid://c774q2jr2u7he" path="res://Scripts/coin.gd" id="1_g537i"]
+[ext_resource type="Texture2D" uid="uid://drdme2jhktxsr" path="res://Assets/coin_art/coin_1_sprite.png" id="2_h2p6v"]
+[ext_resource type="AudioStream" uid="uid://mubm723m8nls" path="res://Sounds/pickupCoin(1).wav" id="3_g537i"]
+[ext_resource type="Texture2D" uid="uid://5uk2od67x4us" path="res://Assets/icon.svg" id="3_h2p6v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jgi06"]
+radius = 16.0
+
+[node name="coin" type="RigidBody2D" unique_id=1931191305]
+collision_layer = 2
+mass = 2.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_g537i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=381527858]
+shape = SubResource("CircleShape2D_jgi06")
+
+[node name="coin_sprite" type="Sprite2D" parent="." unique_id=73708617]
+scale = Vector2(0.064115666, 0.064115666)
+texture = ExtResource("2_h2p6v")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=880554795]
+visible = false
+position = Vector2(15.999999, 0)
+scale = Vector2(0.051886674, 0.051886674)
+texture = ExtResource("3_h2p6v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=702678821]
+stream = ExtResource("3_g537i")
+volume_db = -10.0
+pitch_scale = 0.22
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="." unique_id=485781356]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="coin_timeout"]

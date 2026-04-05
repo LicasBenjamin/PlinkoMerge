@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://ceb813jhl4e2p"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_x36nl"]
+
+[resource]
+script = ExtResource("1_x36nl")
+upgrade_name = "Purchase a Coin"
+upgrade_description = "Add coin to your inventory (if there's room)"
+cost = {
+"bronze": 10,
+"gold": 0,
+"silver": 0
+}
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

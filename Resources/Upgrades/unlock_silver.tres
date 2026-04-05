@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dts3hdoe6mcgi"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_his4y"]
+[ext_resource type="Resource" uid="uid://dbsfhspk3fob0" path="res://Resources/Upgrades/unlock_gold.tres" id="2_e7d3y"]
+
+[resource]
+script = ExtResource("1_his4y")
+upgrade_name = "Unlock Silver"
+upgrade_description = "Earn silver coins through Plinko"
+cost = {
+"bronze": 50,
+"gold": 0,
+"silver": 0
+}
+unlocks = Array[ExtResource("1_his4y")]([ExtResource("2_e7d3y")])
+uses = 1
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

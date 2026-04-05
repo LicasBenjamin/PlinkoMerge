@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://dbsfhspk3fob0"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_7y1rn"]
+
+[resource]
+script = ExtResource("1_7y1rn")
+upgrade_name = "Unlock Gold"
+upgrade_description = "Earn gold coins through Plinko"
+cost = {
+"bronze": 0,
+"gold": 0,
+"silver": 50
+}
+uses = 1
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

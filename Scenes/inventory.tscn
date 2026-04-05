@@ -1,0 +1,342 @@
+[gd_scene format=3 uid="uid://cpk0xd8au4lg0"]
+
+[ext_resource type="Script" uid="uid://dplkeu3o4gl4b" path="res://Scripts/inventory_panel.gd" id="1_0n8tc"]
+[ext_resource type="Script" uid="uid://b3y8cc2nuvhs6" path="res://Scripts/item_slot.gd" id="1_k5gp2"]
+[ext_resource type="Texture2D" uid="uid://5uk2od67x4us" path="res://Assets/icon.svg" id="1_wdn4f"]
+[ext_resource type="AudioStream" uid="uid://to0r87yjrsey" path="res://Sounds/pickup_coin_1.mp3" id="2_5qg7d"]
+[ext_resource type="AudioStream" uid="uid://n58unsyek86v" path="res://Sounds/drop_coin.mp3" id="3_bvt08"]
+[ext_resource type="Resource" uid="uid://cb7jpw52whiux" path="res://Resources/Coins/coin_1.tres" id="3_k1vlg"]
+[ext_resource type="Texture2D" uid="uid://dam880sm0jufk" path="res://Assets/circle.png" id="3_yxepq"]
+[ext_resource type="StyleBox" uid="uid://dbwf7mgohok6s" path="res://Assets/normal_panel_style.tres" id="4_aqnmd"]
+[ext_resource type="Texture2D" uid="uid://n32uvbbq46yw" path="res://Assets/lock-icon.png" id="8_5qg7d"]
+[ext_resource type="StyleBox" uid="uid://cruh82xtdslcg" path="res://Assets/selected_panel_style.tres" id="8_o4ksx"]
+
+[node name="Inventory" type="Panel" unique_id=1166893834 node_paths=PackedStringArray("item_slots", "sound_player")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -467.5
+offset_top = -322.0
+offset_right = 467.5
+offset_bottom = 393.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0n8tc")
+pickup_sound = ExtResource("2_5qg7d")
+drop_sound = ExtResource("3_bvt08")
+item_slots = [NodePath("MarginContainer/GridContainer/ItemSlot"), NodePath("MarginContainer/GridContainer/ItemSlot2"), NodePath("MarginContainer/GridContainer/ItemSlot3"), NodePath("MarginContainer/GridContainer/ItemSlot4"), NodePath("MarginContainer/GridContainer/ItemSlot5"), NodePath("MarginContainer/GridContainer/ItemSlot6"), NodePath("MarginContainer/GridContainer/ItemSlot7"), NodePath("MarginContainer/GridContainer/ItemSlot8"), NodePath("MarginContainer/GridContainer/ItemSlot9"), NodePath("MarginContainer/GridContainer/ItemSlot10"), NodePath("MarginContainer/GridContainer/ItemSlot11"), NodePath("MarginContainer/GridContainer/ItemSlot12")]
+sound_player = NodePath("AudioStreamPlayer2D")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1396735275]
+max_polyphony = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=589141150]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=591245846]
+layout_mode = 2
+columns = 4
+
+[node name="ItemSlot" type="Panel" parent="MarginContainer/GridContainer" unique_id=733153629]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+item = ExtResource("3_k1vlg")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+is_active = true
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot" unique_id=171423434]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wdn4f")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot2" type="Panel" parent="MarginContainer/GridContainer" unique_id=1208596417]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+is_active = true
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot2" unique_id=667401666]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yxepq")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot3" type="Panel" parent="MarginContainer/GridContainer" unique_id=914048191]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+is_active = true
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot3" unique_id=1524026320]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot4" type="Panel" parent="MarginContainer/GridContainer" unique_id=552984726]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+is_active = true
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot4" unique_id=1898212389]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot5" type="Panel" parent="MarginContainer/GridContainer" unique_id=1045172657]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot5" unique_id=845631258]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot6" type="Panel" parent="MarginContainer/GridContainer" unique_id=1549775245]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot6" unique_id=688679350]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot7" type="Panel" parent="MarginContainer/GridContainer" unique_id=741236335]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot7" unique_id=1999376894]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot8" type="Panel" parent="MarginContainer/GridContainer" unique_id=1948572312]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot8" unique_id=932060534]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot9" type="Panel" parent="MarginContainer/GridContainer" unique_id=2073725543]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot9" unique_id=1639742404]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot10" type="Panel" parent="MarginContainer/GridContainer" unique_id=1830570326]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot10" unique_id=677865698]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot11" type="Panel" parent="MarginContainer/GridContainer" unique_id=1517151358]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot11" unique_id=173658994]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSlot12" type="Panel" parent="MarginContainer/GridContainer" unique_id=1462084949]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_aqnmd")
+script = ExtResource("1_k5gp2")
+normal_style = ExtResource("4_aqnmd")
+selected_style = ExtResource("8_o4ksx")
+lock_image = ExtResource("8_5qg7d")
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/GridContainer/ItemSlot12" unique_id=1961269703]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot2" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot2" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot3" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot3" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot4" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot4" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot5" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot5" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot6" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot6" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot7" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot7" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot8" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot8" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot9" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot9" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot10" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot10" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot11" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot11" to="." method="_item_moved"]
+[connection signal="box_selected" from="MarginContainer/GridContainer/ItemSlot12" to="." method="_on_slot_clicked"]
+[connection signal="item_moved" from="MarginContainer/GridContainer/ItemSlot12" to="." method="_item_moved"]

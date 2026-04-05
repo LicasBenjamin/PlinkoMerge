@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://buvtjw0u4nwyt"]
+
+[ext_resource type="PackedScene" uid="uid://chftb6jbk2v5h" path="res://Scenes/plinko_machine.tscn" id="1_6l7je"]
+[ext_resource type="Script" uid="uid://blqghmndxkips" path="res://Scripts/camera_movement.gd" id="1_iacmt"]
+[ext_resource type="Script" uid="uid://cacily4o7p8f6" path="res://Scripts/upgrade_manager.gd" id="1_m1efj"]
+[ext_resource type="Resource" uid="uid://cb7jpw52whiux" path="res://Resources/Coins/coin_1.tres" id="2_76v2p"]
+[ext_resource type="Script" uid="uid://b16eonnme31ei" path="res://Scenes/spawner.gd" id="3_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://bj8ofle1ijvu6" path="res://Scenes/coin.tscn" id="3_x6ack"]
+[ext_resource type="PackedScene" uid="uid://cpk0xd8au4lg0" path="res://Scenes/inventory.tscn" id="4_x6ack"]
+[ext_resource type="Script" uid="uid://cgvcyxg8e7wti" path="res://Scripts/main_menu_ui.gd" id="5_6ev3c"]
+[ext_resource type="Script" uid="uid://dq25441jdwh4e" path="res://Scripts/drop_coin_button.gd" id="6_drdnd"]
+[ext_resource type="PackedScene" uid="uid://rqoa1pd317tb" path="res://Scenes/shop_slot.tscn" id="6_maf8m"]
+[ext_resource type="Resource" uid="uid://bwexl6mv4q0d8" path="res://Resources/Upgrades/unlock_inventory_slot.tres" id="7_huasi"]
+[ext_resource type="Resource" uid="uid://ceb813jhl4e2p" path="res://Resources/Upgrades/purchase_coin.tres" id="9_mai8y"]
+[ext_resource type="Resource" uid="uid://cltdhkjx6xuvd" path="res://Resources/Upgrades/SilverCoinUpgrades/silver_upgrade_1.tres" id="12_ioaeq"]
+
+[sub_resource type="Animation" id="Animation_6ev3c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 544)]
+}
+
+[sub_resource type="Animation" id="Animation_maf8m"]
+resource_name = "move_to_shop"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 544), Vector2(1872, 544)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_huasi"]
+_data = {
+&"RESET": SubResource("Animation_6ev3c"),
+&"move_to_shop": SubResource("Animation_maf8m")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maf8m"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[node name="MainScene" type="Node2D" unique_id=1828026838 node_paths=PackedStringArray("plinko_machine", "inventory", "coin_drop_button")]
+script = ExtResource("1_m1efj")
+plinko_machine = NodePath("PlinkoMachine")
+inventory = NodePath("Inventory")
+purchaseable_coin_1 = ExtResource("2_76v2p")
+coin_drop_button = NodePath("Spawner/coin_drop_button")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1723871330 node_paths=PackedStringArray("shop_button")]
+position = Vector2(960, 544)
+script = ExtResource("1_iacmt")
+shop_button = NodePath("../UI/Shop_Button")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=1167078286]
+libraries/ = SubResource("AnimationLibrary_huasi")
+
+[node name="PlinkoMachine" parent="." unique_id=1008166058 instance=ExtResource("1_6l7je")]
+position = Vector2(480, 184)
+scale = Vector2(1.7796879, 1.7796879)
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1614417968 node_paths=PackedStringArray("coin", "inventory")]
+position = Vector2(480, 88)
+script = ExtResource("3_jv6wh")
+coin = NodePath("coin")
+inventory = NodePath("../Inventory")
+
+[node name="coin_drop_button" type="Button" parent="Spawner" unique_id=201645700]
+offset_left = -208.0
+offset_top = 824.0
+offset_right = 238.0
+offset_bottom = 957.0
+theme_override_font_sizes/font_size = 91
+text = "Drop Coin"
+script = ExtResource("6_drdnd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Spawner/coin_drop_button" unique_id=735827055]
+
+[node name="coin" parent="Spawner" unique_id=1931191305 instance=ExtResource("3_x6ack")]
+position = Vector2(0, -168)
+freeze = true
+value = -1
+
+[node name="UI" type="Control" parent="." unique_id=311923581 node_paths=PackedStringArray("currency_label", "plinko_machine")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_6ev3c")
+currency_label = NodePath("currency_text")
+plinko_machine = NodePath("../PlinkoMachine")
+
+[node name="currency_text" type="RichTextLabel" parent="UI" unique_id=1108778471]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 40.0
+offset_right = 1880.0
+offset_bottom = 219.75
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=#cd7f32]Bronze: 0[/color] | [color=#c0c0c0]Silver: 0[/color]|[color=#ffd700]Gold: 0[/color]"
+horizontal_alignment = 1
+
+[node name="Shop_Button" type="Button" parent="UI" unique_id=118172176]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 23.4
+anchor_right = 23.4
+offset_left = 272.0
+offset_top = 912.0
+offset_right = 718.0
+offset_bottom = 1045.0
+theme_override_font_sizes/font_size = 91
+text = "Shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="shop" type="ScrollContainer" parent="UI" unique_id=1677187637]
+layout_mode = 0
+offset_left = 1984.0
+offset_top = 64.0
+offset_right = 2759.0
+offset_bottom = 1032.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_maf8m")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/shop" unique_id=1304768587]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/shop/MarginContainer" unique_id=1106071521]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=1951390193]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="shop_text" type="RichTextLabel" parent="UI/shop/MarginContainer/VBoxContainer/MarginContainer" unique_id=750702054]
+custom_minimum_size = Vector2(735, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "Shop"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shop_slot" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=1268437232 node_paths=PackedStringArray("upgrade_list", "upgrade_manager", "inventory") instance=ExtResource("6_maf8m")]
+layout_mode = 2
+upgrade = ExtResource("7_huasi")
+upgrade_list = NodePath("..")
+upgrade_manager = NodePath("../../../../..")
+inventory = NodePath("../../../../../Inventory")
+
+[node name="shop_slot2" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=756751940 node_paths=PackedStringArray("upgrade_list", "upgrade_manager", "inventory") instance=ExtResource("6_maf8m")]
+layout_mode = 2
+upgrade = ExtResource("9_mai8y")
+upgrade_list = NodePath("..")
+upgrade_manager = NodePath("../../../../..")
+inventory = NodePath("../../../../../Inventory")
+
+[node name="shop_slot3" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=1016047374 node_paths=PackedStringArray("upgrade_list", "upgrade_manager", "inventory") instance=ExtResource("6_maf8m")]
+layout_mode = 2
+upgrade = ExtResource("12_ioaeq")
+upgrade_list = NodePath("..")
+upgrade_manager = NodePath("../../../../..")
+inventory = NodePath("../../../../../Inventory")
+
+[node name="Inventory" parent="." unique_id=1166893834 instance=ExtResource("4_x6ack")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 944.0
+offset_top = 128.0
+offset_right = 1879.0
+offset_bottom = 843.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="pressed" from="Spawner/coin_drop_button" to="Spawner" method="_on_drop_coin_button_pressed"]
+[connection signal="timeout" from="Spawner/coin_drop_button/Timer" to="Spawner/coin_drop_button" method="_on_timer_timeout"]
+[connection signal="pressed" from="UI/Shop_Button" to="Camera2D" method="_button_pressed"]
+[connection signal="update_coin" from="Inventory" to="Spawner" method="_update_coin"]

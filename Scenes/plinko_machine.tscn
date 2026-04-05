@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://chftb6jbk2v5h"]
+
+[ext_resource type="PackedScene" uid="uid://b5ofivp8rmasc" path="res://Scenes/peg.tscn" id="1_cbjre"]
+[ext_resource type="PackedScene" uid="uid://do81njtp1155o" path="res://Scenes/award_area.tscn" id="2_cck0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cck0h"]
+size = Vector2(17, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou7bq"]
+size = Vector2(117.202194, 399.16626)
+
+[node name="PlinkoMachine" type="Node2D" unique_id=1008166058]
+
+[node name="Peg54" parent="." unique_id=998411591 instance=ExtResource("1_cbjre")]
+position = Vector2(-48, 0)
+
+[node name="Peg55" parent="." unique_id=1629377333 instance=ExtResource("1_cbjre")]
+
+[node name="Peg56" parent="." unique_id=296718509 instance=ExtResource("1_cbjre")]
+position = Vector2(48, 0)
+
+[node name="Peg57" parent="." unique_id=199336806 instance=ExtResource("1_cbjre")]
+position = Vector2(-72, 48)
+
+[node name="Peg58" parent="." unique_id=1973140137 instance=ExtResource("1_cbjre")]
+position = Vector2(-24, 48)
+
+[node name="Peg59" parent="." unique_id=1670143212 instance=ExtResource("1_cbjre")]
+position = Vector2(24, 48)
+
+[node name="Peg60" parent="." unique_id=1301065382 instance=ExtResource("1_cbjre")]
+position = Vector2(72, 48)
+
+[node name="Peg61" parent="." unique_id=1722783364 instance=ExtResource("1_cbjre")]
+position = Vector2(-96, 96)
+
+[node name="Peg62" parent="." unique_id=1370967657 instance=ExtResource("1_cbjre")]
+position = Vector2(-48, 96)
+
+[node name="Peg63" parent="." unique_id=267106658 instance=ExtResource("1_cbjre")]
+position = Vector2(0, 96)
+
+[node name="Peg64" parent="." unique_id=1796306279 instance=ExtResource("1_cbjre")]
+position = Vector2(48, 96)
+
+[node name="Peg65" parent="." unique_id=2099786748 instance=ExtResource("1_cbjre")]
+position = Vector2(96, 96)
+
+[node name="Peg66" parent="." unique_id=377638226 instance=ExtResource("1_cbjre")]
+position = Vector2(-120, 144)
+
+[node name="Peg67" parent="." unique_id=614355229 instance=ExtResource("1_cbjre")]
+position = Vector2(-72, 144)
+
+[node name="Peg68" parent="." unique_id=233392005 instance=ExtResource("1_cbjre")]
+position = Vector2(-24, 144)
+
+[node name="Peg69" parent="." unique_id=431678840 instance=ExtResource("1_cbjre")]
+position = Vector2(24, 144)
+
+[node name="Peg70" parent="." unique_id=1817310292 instance=ExtResource("1_cbjre")]
+position = Vector2(72, 144)
+
+[node name="Peg71" parent="." unique_id=1290474834 instance=ExtResource("1_cbjre")]
+position = Vector2(120, 144)
+
+[node name="Peg72" parent="." unique_id=1957716313 instance=ExtResource("1_cbjre")]
+position = Vector2(-144, 192)
+
+[node name="Peg73" parent="." unique_id=1426945039 instance=ExtResource("1_cbjre")]
+position = Vector2(-96, 192)
+
+[node name="Peg74" parent="." unique_id=5856276 instance=ExtResource("1_cbjre")]
+position = Vector2(-48, 192)
+
+[node name="Peg75" parent="." unique_id=2031754031 instance=ExtResource("1_cbjre")]
+position = Vector2(0, 192)
+
+[node name="Peg76" parent="." unique_id=1816730265 instance=ExtResource("1_cbjre")]
+position = Vector2(48, 192)
+
+[node name="Peg77" parent="." unique_id=414946463 instance=ExtResource("1_cbjre")]
+position = Vector2(96, 192)
+
+[node name="Peg78" parent="." unique_id=2091283623 instance=ExtResource("1_cbjre")]
+position = Vector2(144, 192)
+
+[node name="Peg79" parent="." unique_id=1341055377 instance=ExtResource("1_cbjre")]
+position = Vector2(-168, 240)
+
+[node name="Peg80" parent="." unique_id=234938660 instance=ExtResource("1_cbjre")]
+position = Vector2(-120, 240)
+
+[node name="Peg81" parent="." unique_id=682980969 instance=ExtResource("1_cbjre")]
+position = Vector2(-72, 240)
+
+[node name="Peg82" parent="." unique_id=1272204883 instance=ExtResource("1_cbjre")]
+position = Vector2(-24, 240)
+
+[node name="Peg83" parent="." unique_id=287322395 instance=ExtResource("1_cbjre")]
+position = Vector2(24, 240)
+
+[node name="Peg84" parent="." unique_id=65063232 instance=ExtResource("1_cbjre")]
+position = Vector2(72, 240)
+
+[node name="Peg85" parent="." unique_id=1500270721 instance=ExtResource("1_cbjre")]
+position = Vector2(120, 240)
+
+[node name="Peg86" parent="." unique_id=1663886491 instance=ExtResource("1_cbjre")]
+position = Vector2(168, 240)
+
+[node name="Peg87" parent="." unique_id=1434831318 instance=ExtResource("1_cbjre")]
+position = Vector2(-192, 288)
+
+[node name="Peg88" parent="." unique_id=1651975032 instance=ExtResource("1_cbjre")]
+position = Vector2(-144, 288)
+
+[node name="Peg89" parent="." unique_id=300920729 instance=ExtResource("1_cbjre")]
+position = Vector2(-96, 288)
+
+[node name="Peg90" parent="." unique_id=1798313502 instance=ExtResource("1_cbjre")]
+position = Vector2(-48, 288)
+
+[node name="Peg91" parent="." unique_id=75455857 instance=ExtResource("1_cbjre")]
+position = Vector2(0, 288)
+
+[node name="Peg92" parent="." unique_id=273844677 instance=ExtResource("1_cbjre")]
+position = Vector2(48, 288)
+
+[node name="Peg93" parent="." unique_id=1746723443 instance=ExtResource("1_cbjre")]
+position = Vector2(96, 288)
+
+[node name="Peg94" parent="." unique_id=1475707030 instance=ExtResource("1_cbjre")]
+position = Vector2(144, 288)
+
+[node name="Peg95" parent="." unique_id=1434848796 instance=ExtResource("1_cbjre")]
+position = Vector2(192, 288)
+
+[node name="Peg96" parent="." unique_id=1994991927 instance=ExtResource("1_cbjre")]
+position = Vector2(-216, 336)
+
+[node name="Peg97" parent="." unique_id=323931683 instance=ExtResource("1_cbjre")]
+position = Vector2(-168, 336)
+
+[node name="Peg98" parent="." unique_id=2050180133 instance=ExtResource("1_cbjre")]
+position = Vector2(-120, 336)
+
+[node name="Peg99" parent="." unique_id=1086532253 instance=ExtResource("1_cbjre")]
+position = Vector2(-72, 336)
+
+[node name="Peg100" parent="." unique_id=392521309 instance=ExtResource("1_cbjre")]
+position = Vector2(-24, 336)
+
+[node name="Peg101" parent="." unique_id=1784452090 instance=ExtResource("1_cbjre")]
+position = Vector2(24, 336)
+
+[node name="Peg102" parent="." unique_id=1908486649 instance=ExtResource("1_cbjre")]
+position = Vector2(72, 336)
+
+[node name="Peg103" parent="." unique_id=498817658 instance=ExtResource("1_cbjre")]
+position = Vector2(120, 336)
+
+[node name="Peg104" parent="." unique_id=1319528803 instance=ExtResource("1_cbjre")]
+position = Vector2(168, 336)
+
+[node name="Peg105" parent="." unique_id=1873067715 instance=ExtResource("1_cbjre")]
+position = Vector2(216, 336)
+
+[node name="AwardArea" parent="." unique_id=936589579 instance=ExtResource("2_cck0h")]
+position = Vector2(-192, 344)
+rewardAmount = 1
+
+[node name="AwardArea2" parent="." unique_id=2003268037 instance=ExtResource("2_cck0h")]
+position = Vector2(-144, 344)
+rewardAmount = 1
+
+[node name="AwardArea3" parent="." unique_id=1214698614 instance=ExtResource("2_cck0h")]
+position = Vector2(-96, 344)
+rewardAmount = 1
+
+[node name="AwardArea4" parent="." unique_id=959209854 instance=ExtResource("2_cck0h")]
+position = Vector2(-48, 344)
+rewardAmount = 1
+
+[node name="AwardArea5" parent="." unique_id=1762266496 instance=ExtResource("2_cck0h")]
+position = Vector2(0, 344)
+rewardAmount = 1
+
+[node name="AwardArea6" parent="." unique_id=1066681285 instance=ExtResource("2_cck0h")]
+position = Vector2(48, 344)
+rewardAmount = 1
+
+[node name="AwardArea7" parent="." unique_id=1489256559 instance=ExtResource("2_cck0h")]
+position = Vector2(96, 344)
+rewardAmount = 1
+
+[node name="AwardArea8" parent="." unique_id=1547688720 instance=ExtResource("2_cck0h")]
+position = Vector2(144, 344)
+rewardAmount = 1
+
+[node name="AwardArea9" parent="." unique_id=220124413 instance=ExtResource("2_cck0h")]
+position = Vector2(192, 344)
+rewardAmount = 1
+
+[node name="BoundaryWalls" type="StaticBody2D" parent="." unique_id=643270581]
+position = Vector2(-216.5, 360)
+collision_mask = 2
+
+[node name="AwardDivider" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1730938499]
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider2" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1397947262]
+position = Vector2(48.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider3" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1000928130]
+position = Vector2(96.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider4" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1534522369]
+position = Vector2(144.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider5" type="CollisionShape2D" parent="BoundaryWalls" unique_id=271588889]
+position = Vector2(192.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider6" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1562206806]
+position = Vector2(240.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider7" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1328207754]
+position = Vector2(288.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider8" type="CollisionShape2D" parent="BoundaryWalls" unique_id=439967658]
+position = Vector2(336.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider9" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1884111914]
+position = Vector2(384.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="AwardDivider10" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1405671548]
+position = Vector2(432.5, 0)
+shape = SubResource("RectangleShape2D_cck0h")
+debug_color = Color(0, 0.5635306, 0.46801436, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryWalls" unique_id=1645103269]
+position = Vector2(18.940811, -225.91548)
+rotation = 0.4712389
+shape = SubResource("RectangleShape2D_ou7bq")
+debug_color = Color(0, 0.6270352, 0.50862294, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundaryWalls" unique_id=2063604426]
+position = Vector2(416.50003, -224)
+rotation = -0.4537856
+shape = SubResource("RectangleShape2D_ou7bq")
+debug_color = Color(0, 0.6270352, 0.50862294, 0.41960785)

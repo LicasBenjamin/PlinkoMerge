@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d1tngy5j0cx5o"]
+
+[ext_resource type="Script" uid="uid://dh1reapq1o7ln" path="res://Scripts/item_data.gd" id="1_3db11"]
+[ext_resource type="Texture2D" uid="uid://brvmy88ggl3ig" path="res://Assets/coin_art/coin_256_sprite.png" id="1_el10s"]
+[ext_resource type="Resource" uid="uid://dc7roxybs1skh" path="res://Resources/Coins/coin_512.tres" id="2_p1fub"]
+
+[resource]
+script = ExtResource("1_3db11")
+icon = ExtResource("1_el10s")
+coin_value = 256
+next_item = ExtResource("2_p1fub")
+metadata/_custom_type_script = "uid://dh1reapq1o7ln"

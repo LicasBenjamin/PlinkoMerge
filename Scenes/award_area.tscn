@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://do81njtp1155o"]
+
+[ext_resource type="Script" uid="uid://c6ftclhr14g84" path="res://Scenes/award_area.gd" id="1_hln76"]
+[ext_resource type="StyleBox" uid="uid://e7gsw3g7k3xv" path="res://Assets/bronze_box.tres" id="2_kj8cr"]
+[ext_resource type="StyleBox" uid="uid://cred8t0qgrer" path="res://Assets/silver_box.tres" id="3_b1qo1"]
+[ext_resource type="StyleBox" uid="uid://fryicl6hd027" path="res://Assets/gold_box.tres" id="4_l7cry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hp0n3"]
+size = Vector2(32, 40)
+
+[sub_resource type="Animation" id="Animation_hln76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_evcf6"]
+resource_name = "activated"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-16, 3), Vector2(-16, 8), Vector2(-16, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbo2y"]
+_data = {
+&"RESET": SubResource("Animation_hln76"),
+&"activated": SubResource("Animation_evcf6")
+}
+
+[node name="AwardArea" type="Area2D" unique_id=936589579]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_hln76")
+bronzeLabel = ExtResource("2_kj8cr")
+silverLabel = ExtResource("3_b1qo1")
+goldLabel = ExtResource("4_l7cry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=914547591]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_hp0n3")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=763003712]
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1082091009]
+offset_left = -16.0
+offset_top = 3.0
+offset_right = 16.0
+offset_bottom = 18.999983
+theme_override_styles/panel = ExtResource("2_kj8cr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1438727129]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_cbo2y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=736139054]
+visible = false
+offset_left = -16.0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 47.0
+bbcode_enabled = true
+text = "0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

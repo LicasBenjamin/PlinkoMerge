@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c6jfydyhh8njq"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_pw7e1"]
+
+[resource]
+script = ExtResource("1_pw7e1")
+upgrade_name = "Reduce coin drop button cooldown"
+upgrade_description = "-0.2s to coin drop cooldown"
+cost = {
+"bronze": 10,
+"gold": 0,
+"silver": 0
+}
+cost_progression = Array[Dictionary]([{
+"bronze": 10,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 20,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 40,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 80,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 160,
+"gold": 0,
+"silver": 0
+}, {
+"bronze": 200,
+"gold": 0,
+"silver": 10
+}, {
+"bronze": 220,
+"gold": 0,
+"silver": 20
+}, {
+"bronze": 240,
+"gold": 0,
+"silver": 40
+}, {
+"bronze": 260,
+"gold": 0,
+"silver": 80
+}, {
+"bronze": 300,
+"gold": 0,
+"silver": 100
+}])
+uses = 10
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

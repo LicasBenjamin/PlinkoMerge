@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://4hprrykjejuq"]
+
+[ext_resource type="Texture2D" uid="uid://5w7cejwlaq1h" path="res://Assets/coin_art/coin_2048_sprite.png" id="1_31xl4"]
+[ext_resource type="Script" uid="uid://dh1reapq1o7ln" path="res://Scripts/item_data.gd" id="1_fmslk"]
+
+[resource]
+script = ExtResource("1_fmslk")
+icon = ExtResource("1_31xl4")
+coin_value = 2048
+metadata/_custom_type_script = "uid://dh1reapq1o7ln"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c4fepv3hxkuiq"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_u1k25"]
+
+[resource]
+script = ExtResource("1_u1k25")
+upgrade_name = "Gold Coin Upgrade 2"
+upgrade_description = "Upgrade Slot 9 to give gold coins"
+cost = {
+"bronze": 500,
+"gold": 0,
+"silver": 100
+}
+uses = 1
+metadata/_custom_type_script = "uid://dfuivykfecq7i"

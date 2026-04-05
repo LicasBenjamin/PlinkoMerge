@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://cltdhkjx6xuvd"]
+
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_y622k"]
+[ext_resource type="Resource" uid="uid://bh61haaub73q4" path="res://Resources/Upgrades/SilverCoinUpgrades/silver_upgrade_2.tres" id="2_oy5ms"]
+
+[resource]
+script = ExtResource("1_y622k")
+upgrade_name = "Silver Coin Upgrade 1"
+upgrade_description = "Upgrade Slot 1 to give silver coins"
+cost = {
+"bronze": 75,
+"gold": 0,
+"silver": 0
+}
+unlocks = Array[ExtResource("1_y622k")]([ExtResource("2_oy5ms")])
+uses = 1
+metadata/_custom_type_script = "uid://dfuivykfecq7i"
