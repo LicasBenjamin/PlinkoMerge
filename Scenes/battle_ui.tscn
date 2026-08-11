@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cmy62caf0o2me"]
+
+[node name="BattleUI" type="Control" unique_id=160897601]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BeatScoreLabel" type="RichTextLabel" parent="." unique_id=167369445]
+layout_mode = 0
+offset_left = 11.0
+offset_right = 324.0
+offset_bottom = 67.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Score At Least:"
+
+[node name="BeatScore" type="RichTextLabel" parent="." unique_id=737214109]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 613.0
+offset_bottom = 67.0
+theme_override_font_sizes/normal_font_size = 40
+text = "0"
+
+[node name="CurrentScoreLabel" type="RichTextLabel" parent="." unique_id=680934058]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 42.0
+offset_right = 321.0
+offset_bottom = 109.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Round Score:"
+
+[node name="CurrentScore" type="RichTextLabel" parent="." unique_id=1538642675]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 42.0
+offset_right = 578.0
+offset_bottom = 109.0
+theme_override_font_sizes/normal_font_size = 40
+text = "0"

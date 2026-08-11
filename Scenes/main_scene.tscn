@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://bwexl6mv4q0d8" path="res://Resources/Upgrades/unlock_inventory_slot.tres" id="7_huasi"]
 [ext_resource type="Resource" uid="uid://ceb813jhl4e2p" path="res://Resources/Upgrades/purchase_coin.tres" id="9_mai8y"]
 [ext_resource type="Resource" uid="uid://cltdhkjx6xuvd" path="res://Resources/Upgrades/SilverCoinUpgrades/silver_upgrade_1.tres" id="12_ioaeq"]
+[ext_resource type="PackedScene" uid="uid://cmy62caf0o2me" path="res://Scenes/battle_ui.tscn" id="13_7ewk0"]
 
 [sub_resource type="Animation" id="Animation_6ev3c"]
 length = 0.001
@@ -182,6 +183,9 @@ upgrade = ExtResource("12_ioaeq")
 upgrade_list = NodePath("..")
 upgrade_manager = NodePath("../../../../..")
 inventory = NodePath("../../../../../Inventory")
+
+[node name="BattleUI" parent="UI" unique_id=160897601 instance=ExtResource("13_7ewk0")]
+layout_mode = 1
 
 [node name="Inventory" parent="." unique_id=1166893834 instance=ExtResource("4_x6ack")]
 anchors_preset = 0
