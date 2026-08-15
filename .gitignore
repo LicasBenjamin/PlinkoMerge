@@ -7,3 +7,6 @@
 .export/
 *.tmp
 *.log
+
+# Others
+devlog*.md

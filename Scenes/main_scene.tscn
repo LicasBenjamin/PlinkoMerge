@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://blqghmndxkips" path="res://Scripts/camera_movement.gd" id="1_iacmt"]
 [ext_resource type="Script" uid="uid://cacily4o7p8f6" path="res://Scripts/upgrade_manager.gd" id="1_m1efj"]
 [ext_resource type="Resource" uid="uid://cb7jpw52whiux" path="res://Resources/Coins/coin_1.tres" id="2_76v2p"]
-[ext_resource type="Script" uid="uid://b16eonnme31ei" path="res://Scenes/spawner.gd" id="3_jv6wh"]
+[ext_resource type="Script" uid="uid://b16eonnme31ei" path="res://Scripts/spawner.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://bj8ofle1ijvu6" path="res://Scenes/coin.tscn" id="3_x6ack"]
 [ext_resource type="PackedScene" uid="uid://cpk0xd8au4lg0" path="res://Scenes/inventory.tscn" id="4_x6ack"]
 [ext_resource type="Script" uid="uid://cgvcyxg8e7wti" path="res://Scripts/main_menu_ui.gd" id="5_6ev3c"]

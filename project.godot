@@ -26,6 +26,7 @@ buses/default_bus_layout="uid://1hc0atggf0tj"
 [autoload]
 
 Currency="*uid://cfpige7dd7r1d"
+GameManager="*uid://6xfqoxs12rxw"
 
 [display]
 
