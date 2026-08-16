@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cmy62caf0o2me"]
 
+[ext_resource type="Script" uid="uid://qwl3olcj3kjp" path="res://Scripts/battle_ui.gd" id="1_a7smn"]
+
 [node name="BattleUI" type="Control" unique_id=160897601]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a7smn")
 
 [node name="BeatScoreLabel" type="RichTextLabel" parent="." unique_id=167369445]
 layout_mode = 0
@@ -14,12 +17,12 @@ offset_left = 11.0
 offset_right = 324.0
 offset_bottom = 67.0
 theme_override_font_sizes/normal_font_size = 40
-text = "Score At Least:"
+text = "Target Score:"
 
 [node name="BeatScore" type="RichTextLabel" parent="." unique_id=737214109]
 layout_mode = 0
-offset_left = 300.0
-offset_right = 613.0
+offset_left = 265.0
+offset_right = 578.0005
 offset_bottom = 67.0
 theme_override_font_sizes/normal_font_size = 40
 text = "0"
@@ -31,13 +34,13 @@ offset_top = 42.0
 offset_right = 321.0
 offset_bottom = 109.0
 theme_override_font_sizes/normal_font_size = 40
-text = "Round Score:"
+text = "Current Score:"
 
 [node name="CurrentScore" type="RichTextLabel" parent="." unique_id=1538642675]
 layout_mode = 0
-offset_left = 265.0
+offset_left = 287.0
 offset_top = 42.0
-offset_right = 578.0
+offset_right = 600.00183
 offset_bottom = 109.0
 theme_override_font_sizes/normal_font_size = 40
 text = "0"

@@ -64,3 +64,4 @@ func _adjust_currency(type: int, amount: int):
 	elif rewardType == 2:
 		Currency.add_coins({"gold" : amount})
 	update_ui.emit()
+	GameManager.add_score(amount)

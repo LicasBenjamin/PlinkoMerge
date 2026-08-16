@@ -27,7 +27,23 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, 544)]
+"values": [Vector2(960, -540)]
+}
+
+[sub_resource type="Animation" id="Animation_7ewk0"]
+resource_name = "move_to_select"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [544.0, -550.0]
 }
 
 [sub_resource type="Animation" id="Animation_maf8m"]
@@ -49,6 +65,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_huasi"]
 _data = {
 &"RESET": SubResource("Animation_6ev3c"),
+&"move_to_select": SubResource("Animation_7ewk0"),
 &"move_to_shop": SubResource("Animation_maf8m")
 }
 
@@ -58,14 +75,15 @@ bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
 [node name="MainScene" type="Node2D" unique_id=1828026838 node_paths=PackedStringArray("plinko_machine", "inventory", "coin_drop_button")]
 script = ExtResource("1_m1efj")
 plinko_machine = NodePath("PlinkoMachine")
-inventory = NodePath("Inventory")
+inventory = NodePath("UI/Inventory")
 purchaseable_coin_1 = ExtResource("2_76v2p")
 coin_drop_button = NodePath("Spawner/coin_drop_button")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1723871330 node_paths=PackedStringArray("shop_button")]
-position = Vector2(960, 544)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1723871330 node_paths=PackedStringArray("shop_button", "next_round_button")]
+position = Vector2(960, -540)
 script = ExtResource("1_iacmt")
 shop_button = NodePath("../UI/Shop_Button")
+next_round_button = NodePath("../UI/Next_Round_Button")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=1167078286]
 libraries/ = SubResource("AnimationLibrary_huasi")
@@ -78,7 +96,7 @@ scale = Vector2(1.7796879, 1.7796879)
 position = Vector2(480, 88)
 script = ExtResource("3_jv6wh")
 coin = NodePath("coin")
-inventory = NodePath("../Inventory")
+inventory = NodePath("../UI/Inventory")
 
 [node name="coin_drop_button" type="Button" parent="Spawner" unique_id=201645700]
 offset_left = -208.0
@@ -93,7 +111,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Timer" type="Timer" parent="Spawner/coin_drop_button" unique_id=735827055]
 
 [node name="coin" parent="Spawner" unique_id=1931191305 instance=ExtResource("3_x6ack")]
-position = Vector2(0, -168)
+position = Vector2(-650, -168)
 freeze = true
 value = -1
 
@@ -105,30 +123,6 @@ offset_bottom = 40.0
 script = ExtResource("5_6ev3c")
 currency_label = NodePath("currency_text")
 plinko_machine = NodePath("../PlinkoMachine")
-
-[node name="currency_text" type="RichTextLabel" parent="UI" unique_id=1108778471]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 40.0
-offset_right = 1880.0
-offset_bottom = 219.75
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[color=#cd7f32]Bronze: 0[/color] | [color=#c0c0c0]Silver: 0[/color]|[color=#ffd700]Gold: 0[/color]"
-horizontal_alignment = 1
-
-[node name="Shop_Button" type="Button" parent="UI" unique_id=118172176]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 23.4
-anchor_right = 23.4
-offset_left = 272.0
-offset_top = 912.0
-offset_right = 718.0
-offset_bottom = 1045.0
-theme_override_font_sizes/font_size = 91
-text = "Shop"
-metadata/_edit_use_anchors_ = true
 
 [node name="shop" type="ScrollContainer" parent="UI" unique_id=1677187637]
 layout_mode = 0
@@ -168,26 +162,24 @@ layout_mode = 2
 upgrade = ExtResource("7_huasi")
 upgrade_list = NodePath("..")
 upgrade_manager = NodePath("../../../../..")
-inventory = NodePath("../../../../../Inventory")
+inventory = NodePath("../../../../Inventory")
 
 [node name="shop_slot2" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=756751940 node_paths=PackedStringArray("upgrade_list", "upgrade_manager", "inventory") instance=ExtResource("6_maf8m")]
 layout_mode = 2
 upgrade = ExtResource("9_mai8y")
 upgrade_list = NodePath("..")
 upgrade_manager = NodePath("../../../../..")
-inventory = NodePath("../../../../../Inventory")
+inventory = NodePath("../../../../Inventory")
 
 [node name="shop_slot3" parent="UI/shop/MarginContainer/VBoxContainer" unique_id=1016047374 node_paths=PackedStringArray("upgrade_list", "upgrade_manager", "inventory") instance=ExtResource("6_maf8m")]
 layout_mode = 2
 upgrade = ExtResource("12_ioaeq")
 upgrade_list = NodePath("..")
 upgrade_manager = NodePath("../../../../..")
-inventory = NodePath("../../../../../Inventory")
+inventory = NodePath("../../../../Inventory")
 
-[node name="BattleUI" parent="UI" unique_id=160897601 instance=ExtResource("13_7ewk0")]
-layout_mode = 1
-
-[node name="Inventory" parent="." unique_id=1166893834 instance=ExtResource("4_x6ack")]
+[node name="Inventory" parent="UI" unique_id=1166893834 instance=ExtResource("4_x6ack")]
+layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -200,7 +192,67 @@ offset_bottom = 843.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="currency_text" type="RichTextLabel" parent="UI" unique_id=1108778471]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 40.0
+offset_right = 1880.0
+offset_bottom = 219.75
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=#cd7f32]Bronze: 0[/color] | [color=#c0c0c0]Silver: 0[/color]|[color=#ffd700]Gold: 0[/color]"
+horizontal_alignment = 1
+
+[node name="Shop_Button" type="Button" parent="UI" unique_id=118172176]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 23.4
+anchor_right = 23.4
+offset_left = 272.0
+offset_top = 912.0
+offset_right = 718.0
+offset_bottom = 1045.0
+theme_override_font_sizes/font_size = 91
+text = "Shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Select_Button" type="Button" parent="UI" unique_id=270781929]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 10.55
+anchor_top = -48.7
+anchor_right = 10.55
+anchor_bottom = -48.7
+offset_left = 272.0
+offset_top = 912.0
+offset_right = 718.0
+offset_bottom = 1045.0
+theme_override_font_sizes/font_size = 91
+text = "Select"
+metadata/_edit_use_anchors_ = true
+
+[node name="Next_Round_Button" type="Button" parent="UI" unique_id=1011696827]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.7
+anchor_top = -22.275
+anchor_right = 14.75
+anchor_bottom = -22.275
+offset_left = 272.0
+offset_top = 911.0
+offset_right = 718.0
+offset_bottom = 1044.0
+scale = Vector2(0.48, 0.48)
+theme_override_font_sizes/font_size = 91
+text = "Next Round"
+metadata/_edit_use_anchors_ = true
+
+[node name="BattleUI" parent="UI" unique_id=160897601 instance=ExtResource("13_7ewk0")]
+layout_mode = 1
+
 [connection signal="pressed" from="Spawner/coin_drop_button" to="Spawner" method="_on_drop_coin_button_pressed"]
 [connection signal="timeout" from="Spawner/coin_drop_button/Timer" to="Spawner/coin_drop_button" method="_on_timer_timeout"]
-[connection signal="pressed" from="UI/Shop_Button" to="Camera2D" method="_button_pressed"]
-[connection signal="update_coin" from="Inventory" to="Spawner" method="_update_coin"]
+[connection signal="update_coin" from="UI/Inventory" to="Spawner" method="_update_coin"]
+[connection signal="pressed" from="UI/Shop_Button" to="Camera2D" method="shop_button_pressed"]
+[connection signal="pressed" from="UI/Select_Button" to="Camera2D" method="select_button_pressed"]
+[connection signal="pressed" from="UI/Next_Round_Button" to="Camera2D" method="next_round_button_pressed"]

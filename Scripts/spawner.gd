@@ -6,6 +6,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$coin_drop_button.disabled = true
+	GameManager.round_ended.connect(on_round_end)
 	pass # Replace with function body.
 
 
@@ -37,7 +38,7 @@ func _on_drop_coin_button_pressed() -> void:
 
 func _update_coin(value : ItemData):
 	#check if value is 0 (means coin cannot be used)
-	if not value: #if the coin is null
+	if not value or GameManager.current_state == 1: #if the coin is null or round over
 		#if $coin_drop_button.can_be_used:
 		#	$coin_drop_button.disabled = true
 		$coin_drop_button.disabled = true
@@ -48,3 +49,6 @@ func _update_coin(value : ItemData):
 		#print(value)
 		coin.value = value.coin_value
 		coin.change_coin_sprite(value.icon)
+
+func on_round_end():
+	$coin_drop_button.disabled = true
