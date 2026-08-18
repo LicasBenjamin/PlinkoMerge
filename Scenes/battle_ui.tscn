@@ -44,3 +44,21 @@ offset_right = 600.00183
 offset_bottom = 109.0
 theme_override_font_sizes/normal_font_size = 40
 text = "0"
+
+[node name="ChipCountLabel" type="RichTextLabel" parent="." unique_id=277259362]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 83.0
+offset_right = 321.0
+offset_bottom = 150.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Chips:"
+
+[node name="ChipCount" type="RichTextLabel" parent="." unique_id=1228297716]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 83.0
+offset_right = 443.00183
+offset_bottom = 150.0
+theme_override_font_sizes/normal_font_size = 40
+text = "0"

@@ -12,10 +12,12 @@ extends PanelContainer
 func _ready():
 	$text_margins/text/name.text = upgrade.upgrade_name
 	$text_margins/text/description.text = upgrade.upgrade_description
-	$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost)
+	$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost, upgrade.c_cost)
 	
 
-func format_cost(coins: Dictionary) -> String:
+func format_cost(coins: Dictionary, c_coin : int) -> String:
+	return str(c_coin)
+	
 	var parts: Array[String] = []
 	if coins["gold"] > 0:
 		parts.append("%d Gold" % coins["gold"])
@@ -26,7 +28,7 @@ func format_cost(coins: Dictionary) -> String:
 	return ", ".join(parts)
 
 func _on_buy_pressed():
-	if !Currency.has_enough_coins(upgrade.cost):
+	if !Currency.has_enough_coins(upgrade.cost, upgrade.c_cost):
 		#$AudioStreamPlayer2D.stream = cannot_purchase_sound
 		#$AudioStreamPlayer2D.play()
 		inventory.sound_player.stream = cannot_purchase_sound
@@ -40,7 +42,7 @@ func _on_buy_pressed():
 			inventory.sound_player.stream = cannot_purchase_sound
 			inventory.sound_player.play()
 			return
-	Currency.spend_coins(upgrade.cost)
+	Currency.spend_coins(upgrade.cost, upgrade.c_cost)
 	print("Bought Upgrade")
 	#$AudioStreamPlayer2D.stream = purchase_sound
 	#$AudioStreamPlayer2D.play()
@@ -67,13 +69,13 @@ func _adjust_after_purchase():
 		#The only upgrade that should be infinitely purchasable should go up 3x
 		#if the currency goes over 1k and it's not gold, 
 		upgrade.cost = scale_cost(upgrade.cost, 1.3)
-		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost)
+		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost, upgrade.c_cost)
 		upgrade.uses+=1 #cancels out the adjustment at the start
 	else:
 		#adjust price
 		upgrade.cost_progression_index+=1
 		upgrade.cost = upgrade.cost_progression[upgrade.cost_progression_index]
-		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost)
+		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost, upgrade.c_cost)
 
 #Following 3 functions below are for scaling the coins upwards
 func scale_cost(coins: Dictionary, multiplier: float) -> Dictionary:

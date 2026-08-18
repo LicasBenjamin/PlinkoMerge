@@ -9,11 +9,6 @@ func _ready() -> void:
 	GameManager.round_ended.connect(on_round_end)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func drop_coin(coin_info : ItemData) -> void:
 	var instance = coin.duplicate()
 	
@@ -31,8 +26,13 @@ func drop_coin(coin_info : ItemData) -> void:
 
 func _on_drop_coin_button_pressed() -> void:
 	#print("Type of object: "+str(inventory.selected_slot.item is ItemData))
+	if !GameManager.request_chip():
+		$coin_drop_button.disabled = true
+		return
+	
 	if inventory.selected_slot.item:
 		drop_coin(inventory.selected_slot.item)
+		
 
 
 

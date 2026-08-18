@@ -14,4 +14,6 @@ cost = {
 }
 unlocks = Array[ExtResource("1_y622k")]([ExtResource("2_oy5ms")])
 uses = 1
+c_cost = 3
+c_cost_progresison = Array[int]([3, 4, 6, 7, 9, 10, 11, 13])
 metadata/_custom_type_script = "uid://dfuivykfecq7i"
