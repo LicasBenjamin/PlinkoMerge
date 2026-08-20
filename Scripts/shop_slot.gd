@@ -69,12 +69,14 @@ func _adjust_after_purchase():
 		#The only upgrade that should be infinitely purchasable should go up 3x
 		#if the currency goes over 1k and it's not gold, 
 		upgrade.cost = scale_cost(upgrade.cost, 1.3)
+		upgrade.c_cost = scale_c_cost(upgrade.c_cost, 1.3)
 		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost, upgrade.c_cost)
 		upgrade.uses+=1 #cancels out the adjustment at the start
 	else:
 		#adjust price
 		upgrade.cost_progression_index+=1
 		upgrade.cost = upgrade.cost_progression[upgrade.cost_progression_index]
+		upgrade.c_cost = upgrade.c_cost_progresison[upgrade.cost_progression_index]
 		$text_margins/text/price.text = "Price: "+format_cost(upgrade.cost, upgrade.c_cost)
 
 #Following 3 functions below are for scaling the coins upwards
@@ -83,6 +85,9 @@ func scale_cost(coins: Dictionary, multiplier: float) -> Dictionary:
 	#print(total)
 	total *= multiplier
 	return from_bronze(total)
+
+func scale_c_cost(coin : int, multiplier : float) -> int:
+	return coin * multiplier
 
 func from_bronze(total_bronze: int) -> Dictionary:
 	var result = {

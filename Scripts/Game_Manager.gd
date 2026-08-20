@@ -50,11 +50,15 @@ func start_round():
 #End Round
 func end_round():
 	#check for win or lose, change state to Idle
+	#if won
+	Currency.add_c_coins(target_score)
 	current_state = State.Idle
 	round_ended.emit()
 
 #Need a function for when score is changed from award area
 func add_score(score : int):
+	if(current_state == State.Idle):
+		return
 	current_score += score
 	update_UI.emit(current_score, target_score)
 	

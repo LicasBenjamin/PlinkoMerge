@@ -14,7 +14,9 @@ func add_coins(amount: Dictionary, c_amount: int):
 	for key in amount:
 		coins[key] += amount[key]
 	#print(coins)
-	coin += c_amount
+
+func add_c_coins(amount: int):
+	coin += amount
 
 func spend_coins(amount: Dictionary, c_amount : int):
 	if not has_enough_coins(amount, c_amount):
