@@ -14,6 +14,9 @@
 [ext_resource type="Resource" uid="uid://ceb813jhl4e2p" path="res://Resources/Upgrades/purchase_coin.tres" id="9_mai8y"]
 [ext_resource type="Resource" uid="uid://cltdhkjx6xuvd" path="res://Resources/Upgrades/SilverCoinUpgrades/silver_upgrade_1.tres" id="12_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://cmy62caf0o2me" path="res://Scenes/battle_ui.tscn" id="13_7ewk0"]
+[ext_resource type="PackedScene" uid="uid://wfk0or284x7b" path="res://Scenes/enemy_option.tscn" id="15_gnsmo"]
+[ext_resource type="Script" uid="uid://dm8sxwerhk56k" path="res://Scenes/enemy_selection.gd" id="15_psl12"]
+[ext_resource type="Script" uid="uid://k0y3lhxgm4bg" path="res://Scripts/enemy_data.gd" id="16_psl12"]
 
 [sub_resource type="Animation" id="Animation_6ev3c"]
 length = 0.001
@@ -71,6 +74,26 @@ _data = {
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_maf8m"]
 bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[sub_resource type="Resource" id="Resource_gnsmo"]
+script = ExtResource("16_psl12")
+target_score = 4
+reward = 4
+metadata/_custom_type_script = "uid://k0y3lhxgm4bg"
+
+[sub_resource type="Resource" id="Resource_psl12"]
+script = ExtResource("16_psl12")
+difficulty = 1
+target_score = 8
+reward = 8
+metadata/_custom_type_script = "uid://k0y3lhxgm4bg"
+
+[sub_resource type="Resource" id="Resource_2ebs2"]
+script = ExtResource("16_psl12")
+difficulty = 2
+target_score = 12
+reward = 12
+metadata/_custom_type_script = "uid://k0y3lhxgm4bg"
 
 [node name="MainScene" type="Node2D" unique_id=1828026838 node_paths=PackedStringArray("plinko_machine", "inventory", "coin_drop_button")]
 script = ExtResource("1_m1efj")
@@ -216,21 +239,6 @@ theme_override_font_sizes/font_size = 91
 text = "Shop"
 metadata/_edit_use_anchors_ = true
 
-[node name="Select_Button" type="Button" parent="UI" unique_id=270781929]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 10.55
-anchor_top = -48.7
-anchor_right = 10.55
-anchor_bottom = -48.7
-offset_left = 272.0
-offset_top = 912.0
-offset_right = 718.0
-offset_bottom = 1045.0
-theme_override_font_sizes/font_size = 91
-text = "Select"
-metadata/_edit_use_anchors_ = true
-
 [node name="Next_Round_Button" type="Button" parent="UI" unique_id=1011696827]
 layout_mode = 1
 anchors_preset = -1
@@ -250,9 +258,61 @@ metadata/_edit_use_anchors_ = true
 [node name="BattleUI" parent="UI" unique_id=160897601 instance=ExtResource("13_7ewk0")]
 layout_mode = 1
 
+[node name="EnemySelection" type="Control" parent="UI" unique_id=1755688809]
+anchors_preset = 0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = -1.0
+script = ExtResource("15_psl12")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/EnemySelection" unique_id=666859872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/EnemySelection/MarginContainer" unique_id=455090737]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="UI/EnemySelection/MarginContainer/VBoxContainer" unique_id=1665704783]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Choose Your Enemy"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/EnemySelection/MarginContainer/VBoxContainer" unique_id=46225705]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="EnemyOptionEasy" parent="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1604631855 instance=ExtResource("15_gnsmo")]
+layout_mode = 2
+size_flags_horizontal = 3
+enemy_data = SubResource("Resource_gnsmo")
+
+[node name="EnemyOptionMedium" parent="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer" unique_id=946331158 instance=ExtResource("15_gnsmo")]
+layout_mode = 2
+size_flags_horizontal = 3
+enemy_data = SubResource("Resource_psl12")
+
+[node name="EnemyOptionHard" parent="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1190122684 instance=ExtResource("15_gnsmo")]
+layout_mode = 2
+size_flags_horizontal = 3
+enemy_data = SubResource("Resource_2ebs2")
+
 [connection signal="pressed" from="Spawner/coin_drop_button" to="Spawner" method="_on_drop_coin_button_pressed"]
 [connection signal="timeout" from="Spawner/coin_drop_button/Timer" to="Spawner/coin_drop_button" method="_on_timer_timeout"]
 [connection signal="update_coin" from="UI/Inventory" to="Spawner" method="_update_coin"]
 [connection signal="pressed" from="UI/Shop_Button" to="Camera2D" method="shop_button_pressed"]
-[connection signal="pressed" from="UI/Select_Button" to="Camera2D" method="select_button_pressed"]
 [connection signal="pressed" from="UI/Next_Round_Button" to="Camera2D" method="next_round_button_pressed"]
+[connection signal="pressed" from="UI/Next_Round_Button" to="UI/EnemySelection" method="next_round_button_pressed"]
+[connection signal="pressed" from="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionEasy" to="Camera2D" method="select_button_pressed"]
+[connection signal="pressed" from="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionMedium" to="Camera2D" method="select_button_pressed"]
+[connection signal="pressed" from="UI/EnemySelection/MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionHard" to="Camera2D" method="select_button_pressed"]

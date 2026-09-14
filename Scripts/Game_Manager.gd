@@ -35,12 +35,12 @@ var remaining_chips = total_chips
 
 ##Global Functions
 #Start Round
-func start_round():
+func start_round(enemy: EnemyData):
 	#increase round number, reset the score, change the state to Playing
 	current_round += 1
 	current_score = 0
 	current_state = State.Playing
-	target_score += current_round
+	target_score = enemy.target_score
 	remaining_chips = total_chips
 	#emit signals for round start and update UI
 	chip_spawned.emit()

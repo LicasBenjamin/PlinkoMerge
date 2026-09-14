@@ -23,7 +23,6 @@ func shop_button_pressed():
 
 
 func select_button_pressed():
-	GameManager.start_round()
 	shop_button.disabled = true
 	next_round_button.visible = false
 	$AnimationPlayer.play_backwards("move_to_select")
