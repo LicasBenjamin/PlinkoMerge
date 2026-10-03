@@ -6,9 +6,11 @@
 [ext_resource type="Resource" uid="uid://cb7jpw52whiux" path="res://Resources/Coins/coin_1.tres" id="2_76v2p"]
 [ext_resource type="Script" uid="uid://b16eonnme31ei" path="res://Scripts/spawner.gd" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://bj8ofle1ijvu6" path="res://Scenes/coin.tscn" id="3_x6ack"]
+[ext_resource type="Script" uid="uid://cplhdfk8f8aa" path="res://Scenes/pause_menu.gd" id="4_oyb3p"]
 [ext_resource type="PackedScene" uid="uid://cpk0xd8au4lg0" path="res://Scenes/inventory.tscn" id="4_x6ack"]
 [ext_resource type="Script" uid="uid://cgvcyxg8e7wti" path="res://Scripts/main_menu_ui.gd" id="5_6ev3c"]
 [ext_resource type="Script" uid="uid://dq25441jdwh4e" path="res://Scripts/drop_coin_button.gd" id="6_drdnd"]
+[ext_resource type="Script" uid="uid://dy0se0wbm780e" path="res://Scenes/game_over_menu.gd" id="6_jvnna"]
 [ext_resource type="PackedScene" uid="uid://rqoa1pd317tb" path="res://Scenes/shop_slot.tscn" id="6_maf8m"]
 [ext_resource type="Resource" uid="uid://bwexl6mv4q0d8" path="res://Resources/Upgrades/unlock_inventory_slot.tres" id="7_huasi"]
 [ext_resource type="Resource" uid="uid://ceb813jhl4e2p" path="res://Resources/Upgrades/purchase_coin.tres" id="9_mai8y"]
@@ -17,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://wfk0or284x7b" path="res://Scenes/enemy_option.tscn" id="15_gnsmo"]
 [ext_resource type="Script" uid="uid://dm8sxwerhk56k" path="res://Scenes/enemy_selection.gd" id="15_psl12"]
 [ext_resource type="Script" uid="uid://k0y3lhxgm4bg" path="res://Scripts/enemy_data.gd" id="16_psl12"]
+[ext_resource type="Texture2D" uid="uid://5uk2od67x4us" path="res://Assets/icon.svg" id="18_2ebs2"]
 
 [sub_resource type="Animation" id="Animation_6ev3c"]
 length = 0.001
@@ -110,6 +113,92 @@ next_round_button = NodePath("../UI/Next_Round_Button")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" unique_id=1167078286]
 libraries/ = SubResource("AnimationLibrary_huasi")
+
+[node name="OverlayUI" type="CanvasLayer" parent="Camera2D" unique_id=61713980]
+
+[node name="PauseBackground" type="Panel" parent="Camera2D/OverlayUI" unique_id=842573961]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_oyb3p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/OverlayUI/PauseBackground" unique_id=1977728611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLabel" type="Label" parent="Camera2D/OverlayUI/PauseBackground/VBoxContainer" unique_id=818081497]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 128
+text = "Paused"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/OverlayUI/PauseBackground/VBoxContainer" unique_id=1598959944]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainMenuButton" type="Button" parent="Camera2D/OverlayUI/PauseBackground/VBoxContainer/HBoxContainer" unique_id=1079640301]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Return to Menu"
+
+[node name="SaveAndQuitButton" type="Button" parent="Camera2D/OverlayUI/PauseBackground/VBoxContainer/HBoxContainer" unique_id=427759211]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Save and Return to Menu"
+
+[node name="PauseButton" type="Button" parent="Camera2D/OverlayUI" unique_id=2123410659]
+anchors_preset = -1
+anchor_left = 0.95625
+anchor_right = 1.0
+anchor_bottom = 0.075925924
+grow_horizontal = 0
+icon = ExtResource("18_2ebs2")
+expand_icon = true
+
+[node name="GameOverBackground" type="Panel" parent="Camera2D/OverlayUI" unique_id=1671658899 node_paths=PackedStringArray("pause_button")]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_jvnna")
+pause_button = NodePath("../PauseButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/OverlayUI/GameOverBackground" unique_id=2035230713]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="Camera2D/OverlayUI/GameOverBackground/VBoxContainer" unique_id=1568261941]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/OverlayUI/GameOverBackground/VBoxContainer" unique_id=1427991739]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainMenuButton" type="Button" parent="Camera2D/OverlayUI/GameOverBackground/VBoxContainer/HBoxContainer" unique_id=275509401]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Return to Menu"
 
 [node name="PlinkoMachine" parent="." unique_id=1008166058 instance=ExtResource("1_6l7je")]
 position = Vector2(480, 184)
@@ -307,6 +396,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 enemy_data = SubResource("Resource_2ebs2")
 
+[connection signal="pressed" from="Camera2D/OverlayUI/PauseBackground/VBoxContainer/HBoxContainer/MainMenuButton" to="Camera2D/OverlayUI/PauseBackground" method="return_to_menu"]
+[connection signal="pressed" from="Camera2D/OverlayUI/PauseBackground/VBoxContainer/HBoxContainer/SaveAndQuitButton" to="Camera2D/OverlayUI/PauseBackground" method="save_and_quit"]
+[connection signal="pressed" from="Camera2D/OverlayUI/PauseButton" to="Camera2D/OverlayUI/PauseBackground" method="toggle_pause_menu"]
+[connection signal="pressed" from="Camera2D/OverlayUI/GameOverBackground/VBoxContainer/HBoxContainer/MainMenuButton" to="Camera2D/OverlayUI/PauseBackground" method="return_to_menu"]
 [connection signal="pressed" from="Spawner/coin_drop_button" to="Spawner" method="_on_drop_coin_button_pressed"]
 [connection signal="timeout" from="Spawner/coin_drop_button/Timer" to="Spawner/coin_drop_button" method="_on_timer_timeout"]
 [connection signal="update_coin" from="UI/Inventory" to="Spawner" method="_update_coin"]

@@ -10,6 +10,8 @@ signal round_ended
 signal update_UI(current_score : int, target_score : int)
 #Chip Spawned
 signal chip_spawned
+#Notify Game Loss
+signal notify_loss
 ##Incoming Signals
 #Chip Landed
 
@@ -32,6 +34,8 @@ var current_score := 0
 var target_score := 1
 #Remaining Chips
 var remaining_chips = total_chips
+#Chips in play
+var chips_dropping = 0
 
 ##Global Functions
 #Start Round
@@ -42,6 +46,7 @@ func start_round(enemy: EnemyData):
 	current_state = State.Playing
 	target_score = enemy.target_score
 	remaining_chips = total_chips
+	chips_dropping = 0
 	#emit signals for round start and update UI
 	chip_spawned.emit()
 	round_started.emit()
@@ -60,15 +65,19 @@ func add_score(score : int):
 	if(current_state == State.Idle):
 		return
 	current_score += score
+	
+	chips_dropping -= 1
 	update_UI.emit(current_score, target_score)
 	
 	if(current_score >= target_score):
 		end_round()
+	if(chips_dropping == 0 && current_score < target_score):
+		notify_loss.emit()
 
 func request_chip():
 	if remaining_chips == 0:
 		return false
 	remaining_chips -= 1
+	chips_dropping += 1
 	chip_spawned.emit()
 	return true
-	

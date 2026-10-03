@@ -9,6 +9,7 @@ var score : int
 @export var goldLabel : StyleBoxFlat
 
 signal update_ui
+signal notify_loss
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
