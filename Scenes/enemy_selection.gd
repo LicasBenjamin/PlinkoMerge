@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func on_enemy_selected(enemy: EnemyData):
 	GameManager.start_round(enemy)
+	GameManager.set_enemies($MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionEasy.get_target(), $MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionMedium.get_target(), $MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionHard.get_target())
 
 func next_round_button_pressed():
 	$MarginContainer/VBoxContainer/HBoxContainer/EnemyOptionEasy.scale_enemy()

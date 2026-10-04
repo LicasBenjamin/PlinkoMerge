@@ -36,6 +36,10 @@ var target_score := 1
 var remaining_chips = total_chips
 #Chips in play
 var chips_dropping = 0
+#Enemy values saved
+var enemy_1_value
+var enemy_2_value
+var enemy_3_value
 
 ##Global Functions
 #Start Round
@@ -81,3 +85,8 @@ func request_chip():
 	chips_dropping += 1
 	chip_spawned.emit()
 	return true
+
+func set_enemies(enemy_1, enemy_2, enemy_3):
+	enemy_1_value = enemy_1
+	enemy_2_value = enemy_2
+	enemy_3_value = enemy_3

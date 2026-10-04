@@ -17,3 +17,10 @@ func _pressed() -> void:
 func scale_enemy():
 	enemy_data.target_score += GameManager.target_score
 	apply_data()
+
+func set_target(target: int):
+	enemy_data.target_score = target
+	apply_data()
+
+func get_target():
+	return enemy_data.target_score
