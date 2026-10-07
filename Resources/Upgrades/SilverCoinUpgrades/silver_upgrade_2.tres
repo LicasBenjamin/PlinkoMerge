@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bh61haaub73q4"]
 
-[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_0d6rq"]
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scripts/upgrade.gd" id="1_0d6rq"]
 [ext_resource type="Resource" uid="uid://dm8lh1r30iihp" path="res://Resources/Upgrades/SilverCoinUpgrades/silver_upgrade_3.tres" id="2_s1u0u"]
 
 [resource]

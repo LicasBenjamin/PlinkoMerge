@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://c6criqxg71dcv"]
 
-[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_5i4yq"]
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scripts/upgrade.gd" id="1_5i4yq"]
 [ext_resource type="Resource" uid="uid://clpcl5iy4nbu5" path="res://Resources/Upgrades/GoldCoinUpgrades/gold_upgrade_1.tres" id="2_ojnjh"]
 
 [resource]

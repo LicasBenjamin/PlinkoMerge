@@ -8,10 +8,14 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Jame-Gam-57-1"
-run/main_scene="uid://buvtjw0u4nwyt"
+run/main_scene="uid://csvypwg5dun30"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
@@ -22,6 +26,7 @@ buses/default_bus_layout="uid://1hc0atggf0tj"
 [autoload]
 
 Currency="*uid://cfpige7dd7r1d"
+GameManager="*uid://6xfqoxs12rxw"
 
 [display]
 

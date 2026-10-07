@@ -8,3 +8,5 @@ extends Resource
 var cost_progression_index := 0
 @export var unlocks : Array[Upgrade]
 @export var uses : int
+@export var c_cost : int
+@export var c_cost_progresison: Array[int]

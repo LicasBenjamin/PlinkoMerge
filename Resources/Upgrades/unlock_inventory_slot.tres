@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" format=3 uid="uid://bwexl6mv4q0d8"]
 
-[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scenes/upgrade.gd" id="1_121rq"]
+[ext_resource type="Script" uid="uid://dfuivykfecq7i" path="res://Scripts/upgrade.gd" id="1_121rq"]
 
 [resource]
 script = ExtResource("1_121rq")
@@ -45,4 +45,6 @@ cost_progression = Array[Dictionary]([{
 "silver": 0
 }])
 uses = 8
+c_cost = 5
+c_cost_progresison = Array[int]([5, 7, 10, 12, 15, 17, 20, 22])
 metadata/_custom_type_script = "uid://dfuivykfecq7i"

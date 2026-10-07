@@ -18,6 +18,7 @@ func update_coin_display():
 	text += "[color=#cd7f32]Bronze: %d[/color] " % Currency.coins["bronze"]
 	text += "| [color=#c0c0c0]Silver: %d[/color] " % Currency.coins["silver"]
 	text += "| [color=#ffd700]Gold: %d[/color]" % Currency.coins["gold"]
+	text += "| Coins: " + str(Currency.coin)
 	
 	currency_label.bbcode_enabled = true
 	currency_label.bbcode_text = text

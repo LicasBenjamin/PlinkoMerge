@@ -9,6 +9,7 @@ var score : int
 @export var goldLabel : StyleBoxFlat
 
 signal update_ui
+signal notify_loss
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,9 +59,10 @@ func adjust_text():
 
 func _adjust_currency(type: int, amount: int):
 	if rewardType == 0:
-		Currency.add_coins({"bronze" : amount})
+		Currency.add_coins({"bronze" : amount}, amount)
 	elif rewardType == 1:
-		Currency.add_coins({"silver" : amount})
+		Currency.add_coins({"silver" : amount}, amount)
 	elif rewardType == 2:
-		Currency.add_coins({"gold" : amount})
+		Currency.add_coins({"gold" : amount}, amount)
 	update_ui.emit()
+	GameManager.add_score(amount)

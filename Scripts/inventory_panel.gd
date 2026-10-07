@@ -10,6 +10,9 @@ var selected_slot: Node = null
 
 signal update_coin(ItemData)
 
+func _ready():
+	GameManager.round_started.connect(_deselect_selected_slot)
+
 func _process(delta: float) -> void:
 	if Input.get_current_cursor_shape() == CURSOR_FORBIDDEN:
 		DisplayServer.cursor_set_shape(DisplayServer.CURSOR_ARROW)
