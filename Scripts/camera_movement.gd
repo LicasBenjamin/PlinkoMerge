@@ -5,6 +5,8 @@ extends Camera2D
 
 func _ready():
 	GameManager.round_ended.connect(on_round_ended)
+	if GameManager.loaded:
+		position.y = 544
 
 func _go_to_shop():
 	$AnimationPlayer.play("move_to_shop")

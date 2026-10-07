@@ -1,6 +1,6 @@
 extends Node
 
-var coins ={
+var coins : Dictionary ={
 	"bronze" : 0,
 	"silver" : 0,
 	"gold" : 0

@@ -4,6 +4,7 @@ func toggle_pause_menu():
 	visible = false if visible else true
 
 func return_to_menu():
+	GameManager.quit_game()
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 func save_and_quit():
@@ -16,6 +17,7 @@ func save_and_quit():
 	config.set_value("enemy", "enemy_2", GameManager.enemy_2_value)
 	config.set_value("enemy", "enemy_3", GameManager.enemy_3_value)
 	config.save("user://save.cfg")
+	GameManager.quit_game()
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 
 #func save_data():

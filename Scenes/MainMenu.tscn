@@ -41,6 +41,7 @@ text = "Start New Run"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 84
+disabled = true
 text = "Continue Run"
 
 [node name="SettingButton" type="Button" parent="UICanvas/Base/MarginContainer/VBoxContainer" unique_id=283136154]
@@ -60,4 +61,5 @@ position = Vector2(1402, 292)
 scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="UICanvas/Base/MarginContainer/VBoxContainer/StartButton" to="." method="on_start_button_pressed"]
+[connection signal="pressed" from="UICanvas/Base/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="UICanvas/Base/MarginContainer/VBoxContainer/QuitButton" to="." method="on_quit_button_pressed"]

@@ -26,13 +26,13 @@ func drop_coin(coin_info : ItemData) -> void:
 
 func _on_drop_coin_button_pressed() -> void:
 	#print("Type of object: "+str(inventory.selected_slot.item is ItemData))
+
+	if inventory.selected_slot.item:
+		drop_coin(inventory.selected_slot.item)
+	
 	if !GameManager.request_chip():
 		$coin_drop_button.disabled = true
 		return
-	
-	if inventory.selected_slot.item:
-		drop_coin(inventory.selected_slot.item)
-		
 
 
 

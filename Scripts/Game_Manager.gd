@@ -40,6 +40,8 @@ var chips_dropping = 0
 var enemy_1_value
 var enemy_2_value
 var enemy_3_value
+#Loaded Save
+var loaded = false
 
 ##Global Functions
 #Start Round
@@ -75,18 +77,42 @@ func add_score(score : int):
 	
 	if(current_score >= target_score):
 		end_round()
-	if(chips_dropping == 0 && current_score < target_score):
+	if(chips_dropping == 0 && remaining_chips == 0 && current_score < target_score):
 		notify_loss.emit()
 
 func request_chip():
+	print(str(remaining_chips))
 	if remaining_chips == 0:
 		return false
 	remaining_chips -= 1
 	chips_dropping += 1
 	chip_spawned.emit()
+	if remaining_chips == 0:
+		return false
 	return true
 
 func set_enemies(enemy_1, enemy_2, enemy_3):
 	enemy_1_value = enemy_1
 	enemy_2_value = enemy_2
 	enemy_3_value = enemy_3
+
+func quit_game():
+	current_round = 0
+	current_state = State.Idle
+	current_score = 0
+	target_score = 1
+	remaining_chips = total_chips
+	chips_dropping = 0
+	enemy_1_value = -1
+	enemy_2_value = -1
+	enemy_3_value = -1
+	Currency.coin = 0
+	loaded = false
+
+func load_save(saved_coins, saved_round, enemy1, enemy2, enemy3):
+	Currency.coin = saved_coins
+	current_round = saved_round
+	enemy_1_value = enemy1
+	enemy_2_value = enemy2
+	enemy_3_value = enemy3
+	loaded = true
